@@ -35,13 +35,11 @@ mongoose
 
 const io = socket(server, {
   cors: {
-    origin: 'http://localhost:3000',
-    credentials: true,
-  },
+    origin: '*',
+  }
 });
 
 global.onlineUsers = new Map();
-
 io.on('connection', (socket) => {
   global.chatSocket = socket;
   socket.on('add-user', (userId) => {
